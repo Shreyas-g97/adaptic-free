@@ -16,7 +16,7 @@ export const options: NextAuthOptions = {
                 password: { label: "Password:", type: "password" },
             },
             async authorize(credentials) {
-                const user = { id: 1, name: "Shreyas", password: "AdapticDemo" }
+                const user = { id: '1', username: "Shreyas", password: "AdapticDemo" }
                 if (user) {
                     return user
                 } else {
@@ -25,4 +25,9 @@ export const options: NextAuthOptions = {
             },
         }),
     ],
+    // pages: {
+    //     signIn: '/auth/signin',
+    //     signOut: '/auth/signout',
+    //     error: '/auth/error', // Error code passed in query string as ?error=
+    //   },
 }

@@ -1,0 +1,5 @@
+.pair-container {
+    display: flex;
+    flex-direction: column; /* Stack content vertically within each pair */
+    margin-bottom: 1em;
+}
