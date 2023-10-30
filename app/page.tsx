@@ -6,12 +6,17 @@ import { adapticServer } from '@/utils/helpers';
 import Navbar from './components/Navbar';
 import { useRouter } from 'next/navigation';
 import useStore from './results'
+import Loading from './components/Loading';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 export default function Home() {
-  const [query, setQuery] = React.useState<string>('');
+  // const [query, setQuery] = React.useState<string>('');
+  const query = useStore.useQueryStore(state => state.query);
+  const setQuery = useStore.useQueryStore(state => state.setQuery);
   const setResults = useStore.useResultsStore(state => state.setResults);
   const [error, setError] = React.useState<string | null>(null);
   const router = useRouter();
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -19,7 +24,7 @@ export default function Home() {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(adapticServer + 'llama/search', { // Replace with the correct Flask server URL
+      const response = await fetch(adapticServer + 'chain/search', { // Replace with the correct Flask server URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,10 +51,18 @@ export default function Home() {
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       console.log('Query entered:', query);
+      setLoading(true);
       handleSearch();
     }
   };
 
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  } else {
   return (
     <>
     <Navbar />
@@ -61,7 +74,7 @@ export default function Home() {
         <h1 className="text-3xl font-semibold mb-4 text-center">Ask a research question</h1>
         <input
           type="text"
-          className="border border-2 border-blue-500 rounded-lg p-4 w-full"
+          className="border border-2 border-blue-300 rounded-lg p-4 w-full"
           placeholder="Enter your research question"
           value={query}
           onChange={handleInputChange}
@@ -71,4 +84,5 @@ export default function Home() {
     </main>
     </>
   );
+}
 }

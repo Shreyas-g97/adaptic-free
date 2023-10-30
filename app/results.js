@@ -10,4 +10,9 @@ const useLoadingStore = create((set) => ({
     setLoading: (loading) => set(() => ({ loading: loading })),
 }));
 
-export default { useResultsStore, useLoadingStore };
+const useQueryStore = create((set) => ({
+    query: '',
+    setQuery: (query) => set(() => ({ query: query })),
+}));
+
+export default { useResultsStore, useLoadingStore, useQueryStore };
