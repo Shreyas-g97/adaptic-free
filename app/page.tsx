@@ -65,7 +65,7 @@ export default function Home() {
   } else {
   return (
     <>
-    <Navbar />
+    <Navbar sidebar={false}/>
     <main className="flex flex-col items-center justify-center min-h-screen bg-white">
       <div className='w-full text-center bg-blue-100 p-7'>
         <h1 className='text-3xl text-blue-800'>Welcome to Adaptic AI Trial Research</h1>

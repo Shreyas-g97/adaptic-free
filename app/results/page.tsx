@@ -33,7 +33,7 @@ const Results: React.FC = () => {
             <div className="mx-auto grid max-w-2xl grid-cols-3 gap-x-8 gap-y-16 border-t border-gray-200 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div className="col-span-1">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Objectives</h3>
-                {objectives.map((objective, index) => (
+                {objectives.map((objective: any, index: any) => (
                     <div className="flex flex-col mb-10 w-[300px] h-[250px]">
                       <h4 className="text-md font-semibold text-gray-900">Option #{index + 1}</h4>
                       <div className="overflow-hidden hover:overflow-y-auto">
@@ -54,7 +54,7 @@ const Results: React.FC = () => {
               </div>
               <div className="col-span-1">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Endpoints</h3>
-                {endpoints.map((endpoint) => (
+                {endpoints.map((endpoint: any) => (
                   <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                   <div className="overflow-hidden group-hover:overflow-y-auto">
                     <article className="mt-6">

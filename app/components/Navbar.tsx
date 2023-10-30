@@ -7,7 +7,7 @@ interface NavbarProps {
   sidebar: boolean;
 }
 
-const Navbar: React.FC = (props) => {
+const Navbar: React.FC<NavbarProps> = (props) => {
   return (
     <nav className="bg-white p-4">
       <div className="container mx-auto flex justify-between items-center">
