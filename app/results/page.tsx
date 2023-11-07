@@ -8,6 +8,7 @@ import Loading from '../components/Loading';
 import { HandThumbUpIcon } from '@heroicons/react/24/outline';
 import { HandThumbDownIcon } from '@heroicons/react/24/outline';
 import { IconButton } from '@material-tailwind/react';
+import { useEffect, useState } from 'react';
 
 const Results: React.FC = () => {
   const results = useStore.useResultsStore(state => state.results);
@@ -33,7 +34,7 @@ const Results: React.FC = () => {
             <div className="mx-auto grid max-w-2xl grid-cols-3 gap-x-8 gap-y-16 border-t border-gray-200 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div className="col-span-1">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Objectives</h3>
-                {objectives.map((objective: any, index: any) => (
+                {/* {objectives.map((objective: any, index: any) => (
                     <div className="flex flex-col mb-10 w-[300px] h-[250px]">
                       <h4 className="text-md font-semibold text-gray-900">Option #{index + 1}</h4>
                       <div className="overflow-hidden hover:overflow-y-auto">
@@ -50,11 +51,71 @@ const Results: React.FC = () => {
                         </IconButton>
                       </div>
                     </div>
-                ))}
+                ))} */}
+
+                {/* Display Primary Objectives */}
+                <div className="mb-4">
+                  <h4 className="text-lg font-semibold mb-2">Primary Objectives</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {objectives[0][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                    </div>
+                </div>
+
+                {/* Display Secondary Endpoints */}
+                <div className="mb-4">
+                  <h4 className="text-lg font-semibold mb-2">Secondary Objectives</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {objectives[1][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                    </div>
+                </div>
+
+                {/* Display Exploratory Endpoints */}
+                <div>
+                  <h4 className="text-lg font-semibold mb-2">Exploratory Objectives</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {objectives[2][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                    </div>
+                </div>
               </div>
               <div className="col-span-1">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Endpoints</h3>
-                {endpoints.map((endpoint: any) => (
+                {/* {endpoints.map((endpoint: any) => (
                   <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                   <div className="overflow-hidden group-hover:overflow-y-auto">
                     <article className="mt-6">
@@ -70,18 +131,18 @@ const Results: React.FC = () => {
                         </IconButton>
                       </div>
                 </div>
-                ))}
-              </div>
-              <div className="col-span-1">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Estimands</h3>
-                {/* {estimands.map((estimand) => (
-                 <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
-                    <div className="overflow-hidden group-hover:overflow-y-auto">
-                      <article className="mt-6">
-                        {estimand.response}
-                      </article>
-                    </div>
-                    <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                ))} */}
+
+              {/* Display Primary Endpoints */}
+                <div className="mb-4">
+                  <h4 className="text-lg font-semibold mb-2">Primary Endpoints</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {endpoints[0][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
                         <IconButton variant='outlined'>
                           <HandThumbUpIcon className="h-5 w-5" />
                         </IconButton>
@@ -89,8 +150,127 @@ const Results: React.FC = () => {
                           <HandThumbDownIcon className="h-5 w-5" />
                         </IconButton>
                       </div>
-                </div> */}
-                {/* ))} */}
+                    </div>
+                </div>
+
+                {/* Display Secondary Endpoints */}
+                <div className="mb-4">
+                  <h4 className="text-lg font-semibold mb-2">Secondary Endpoints</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {endpoints[1][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                    </div>
+                </div>
+
+                {/* Display Exploratory Endpoints */}
+                <div>
+                  <h4 className="text-lg font-semibold mb-2">Exploratory Endpoints</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {endpoints[2][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div className="col-span-1">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Estimands</h3>
+                {/* {estimands.map((estimand: any) => (
+                  <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                  <div className="overflow-hidden group-hover:overflow-y-auto">
+                    <article className="mt-6">
+                      {estimand.text}
+                    </article>
+                  </div>
+                  <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                </div>
+                ))} */}
+                {/* Display Primary Estimands */}
+                <div className="mb-4">
+                  <h4 className="text-lg font-semibold mb-2">Primary Estimands</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {estimands[0][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                    </div>
+                </div>
+
+                {/* Display Secondary Endpoints */}
+                <div className="mb-4">
+                  <h4 className="text-lg font-semibold mb-2">Secondary Estimands</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {estimands[1][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                    </div>
+                </div>
+
+                {/* Display Exploratory Endpoints */}
+                <div>
+                  <h4 className="text-lg font-semibold mb-2">Exploratory Estimands</h4>
+                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                      <div className="overflow-hidden group-hover:overflow-y-auto">
+                        <article className="mt-6">
+                          {estimands[2][0].text}
+                        </article>
+                      </div>
+                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                        <IconButton variant='outlined'>
+                          <HandThumbUpIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined'>
+                          <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                      </div>
+                    </div>
+                </div>
               </div>
             </div>
           </div>
