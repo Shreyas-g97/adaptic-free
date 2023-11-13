@@ -7,6 +7,7 @@ import Sidebar from '../components/Sidebar';
 import Loading from '../components/Loading';
 import { HandThumbUpIcon } from '@heroicons/react/24/outline';
 import { HandThumbDownIcon } from '@heroicons/react/24/outline';
+import { BookOpenIcon } from '@heroicons/react/24/solid';
 import { IconButton } from '@material-tailwind/react';
 import { useEffect, useState } from 'react';
 
@@ -15,6 +16,11 @@ const Results: React.FC = () => {
   const objectives = results?.objectives;
   const endpoints = results?.endpoints;
   const estimands = results?.estimands;
+  const sources = results?.sources;
+
+  const openSources = () => {
+    window.open(sources[0], '_blank');
+  }
 
   if (results === null) {
     return (
@@ -55,19 +61,24 @@ const Results: React.FC = () => {
 
                 {/* Display Primary Objectives */}
                 <div className="mb-4">
-                  <h4 className="text-lg font-semibold mb-2">Primary Objectives</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 1</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {objectives[0][0].text}
+                          {objectives[0][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
-                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                      <div className='flex justify-end mt-2 opacity-100'>
                         <IconButton variant='outlined'>
                           <HandThumbUpIcon className="h-5 w-5" />
                         </IconButton>
                         <IconButton variant='outlined'>
                           <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined' onClick={openSources}>
+                          <BookOpenIcon className="h-5 w-5" />
                         </IconButton>
                       </div>
                     </div>
@@ -75,19 +86,24 @@ const Results: React.FC = () => {
 
                 {/* Display Secondary Endpoints */}
                 <div className="mb-4">
-                  <h4 className="text-lg font-semibold mb-2">Secondary Objectives</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 2</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {objectives[1][0].text}
+                          {objectives[1][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
-                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                      <div className='flex justify-end mt-2 opacity-100'>
                         <IconButton variant='outlined'>
                           <HandThumbUpIcon className="h-5 w-5" />
                         </IconButton>
                         <IconButton variant='outlined'>
                           <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined' onClick={openSources}>
+                          <BookOpenIcon className="h-5 w-5" />
                         </IconButton>
                       </div>
                     </div>
@@ -95,19 +111,24 @@ const Results: React.FC = () => {
 
                 {/* Display Exploratory Endpoints */}
                 <div>
-                  <h4 className="text-lg font-semibold mb-2">Exploratory Objectives</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 3</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {objectives[2][0].text}
+                          {objectives[2][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
-                      <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
+                      <div className='flex justify-end mt-2 opacity-100'>
                         <IconButton variant='outlined'>
                           <HandThumbUpIcon className="h-5 w-5" />
                         </IconButton>
                         <IconButton variant='outlined'>
                           <HandThumbDownIcon className="h-5 w-5" />
+                        </IconButton>
+                        <IconButton variant='outlined' onClick={openSources}>
+                          <BookOpenIcon className="h-5 w-5" />
                         </IconButton>
                       </div>
                     </div>
@@ -135,11 +156,13 @@ const Results: React.FC = () => {
 
               {/* Display Primary Endpoints */}
                 <div className="mb-4">
-                  <h4 className="text-lg font-semibold mb-2">Primary Endpoints</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 1</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {endpoints[0][0].text}
+                          {endpoints[0][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
                       <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
@@ -155,11 +178,13 @@ const Results: React.FC = () => {
 
                 {/* Display Secondary Endpoints */}
                 <div className="mb-4">
-                  <h4 className="text-lg font-semibold mb-2">Secondary Endpoints</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 2</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {endpoints[1][0].text}
+                          {endpoints[1][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
                       <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
@@ -175,11 +200,13 @@ const Results: React.FC = () => {
 
                 {/* Display Exploratory Endpoints */}
                 <div>
-                  <h4 className="text-lg font-semibold mb-2">Exploratory Endpoints</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 3</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {endpoints[2][0].text}
+                          {endpoints[2][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
                       <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
@@ -214,11 +241,13 @@ const Results: React.FC = () => {
                 ))} */}
                 {/* Display Primary Estimands */}
                 <div className="mb-4">
-                  <h4 className="text-lg font-semibold mb-2">Primary Estimands</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 1</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {estimands[0][0].text}
+                          {estimands[0][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
                       <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
@@ -234,11 +263,13 @@ const Results: React.FC = () => {
 
                 {/* Display Secondary Endpoints */}
                 <div className="mb-4">
-                  <h4 className="text-lg font-semibold mb-2">Secondary Estimands</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 2</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {estimands[1][0].text}
+                          {estimands[1][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
                       <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
@@ -254,11 +285,13 @@ const Results: React.FC = () => {
 
                 {/* Display Exploratory Endpoints */}
                 <div>
-                  <h4 className="text-lg font-semibold mb-2">Exploratory Estimands</h4>
+                  <h4 className="text-lg font-semibold mb-2">Option 3</h4>
                     <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
-                          {estimands[2][0].text}
+                          {estimands[2][0].text.split('\n').map((text: any, index: any) => (
+                            <p key={index}>{text}</p>
+                          ))}
                         </article>
                       </div>
                       <div className='flex justify-end mt-2 opacity-0 hover:opacity-100'>
