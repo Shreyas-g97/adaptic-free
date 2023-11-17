@@ -34,10 +34,10 @@ const Results: React.FC = () => {
         <Navbar sidebar={true} />
         <div className="bg-white">
           <div className="mx-auto max-w-7xl px-6 py-6">
-            <div className="fixed left-0">
+            <div className="fixed left-0 md:block hidden">
               <Sidebar />
             </div>
-            <div className="mx-auto grid max-w-2xl grid-cols-3 gap-x-8 gap-y-16 border-t border-gray-200 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 border-t border-gray-200 sm:pt-16 lg:mx-0 lg:max-w-none">
               <div className="col-span-1">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Objectives</h3>
                 {/* {objectives.map((objective: any, index: any) => (
@@ -62,7 +62,7 @@ const Results: React.FC = () => {
                 {/* Display Primary Objectives */}
                 <div className="mb-4">
                   <h4 className="text-lg font-semibold mb-2">Option 1</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {objectives[0][0].text.split('\n').map((text: any, index: any) => (
@@ -87,7 +87,7 @@ const Results: React.FC = () => {
                 {/* Display Secondary Endpoints */}
                 <div className="mb-4">
                   <h4 className="text-lg font-semibold mb-2">Option 2</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {objectives[1][0].text.split('\n').map((text: any, index: any) => (
@@ -112,7 +112,7 @@ const Results: React.FC = () => {
                 {/* Display Exploratory Endpoints */}
                 <div>
                   <h4 className="text-lg font-semibold mb-2">Option 3</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {objectives[2][0].text.split('\n').map((text: any, index: any) => (
@@ -157,7 +157,7 @@ const Results: React.FC = () => {
               {/* Display Primary Endpoints */}
                 <div className="mb-4">
                   <h4 className="text-lg font-semibold mb-2">Option 1</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {endpoints[0][0].text.split('\n').map((text: any, index: any) => (
@@ -179,7 +179,7 @@ const Results: React.FC = () => {
                 {/* Display Secondary Endpoints */}
                 <div className="mb-4">
                   <h4 className="text-lg font-semibold mb-2">Option 2</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {endpoints[1][0].text.split('\n').map((text: any, index: any) => (
@@ -201,7 +201,7 @@ const Results: React.FC = () => {
                 {/* Display Exploratory Endpoints */}
                 <div>
                   <h4 className="text-lg font-semibold mb-2">Option 3</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {endpoints[2][0].text.split('\n').map((text: any, index: any) => (
@@ -242,7 +242,7 @@ const Results: React.FC = () => {
                 {/* Display Primary Estimands */}
                 <div className="mb-4">
                   <h4 className="text-lg font-semibold mb-2">Option 1</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {estimands[0][0].text.split('\n').map((text: any, index: any) => (
@@ -264,7 +264,7 @@ const Results: React.FC = () => {
                 {/* Display Secondary Endpoints */}
                 <div className="mb-4">
                   <h4 className="text-lg font-semibold mb-2">Option 2</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {estimands[1][0].text.split('\n').map((text: any, index: any) => (
@@ -286,7 +286,7 @@ const Results: React.FC = () => {
                 {/* Display Exploratory Endpoints */}
                 <div>
                   <h4 className="text-lg font-semibold mb-2">Option 3</h4>
-                    <div className="flex flex-col mb-10 w-[300px] h-[250px] group">
+                    <div className="flex flex-col mb-10 w-full md:w-[300px] h-[250px] group">
                       <div className="overflow-hidden group-hover:overflow-y-auto">
                         <article className="mt-6">
                           {estimands[2][0].text.split('\n').map((text: any, index: any) => (
