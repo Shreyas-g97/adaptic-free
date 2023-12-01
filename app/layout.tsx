@@ -1,3 +1,5 @@
+'use client';
+import Providers from './components/Providers';
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -91,7 +93,9 @@ export default function RootLayout({
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PCJQ7G93"
           height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe>
         </noscript>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         </body>
     </html>
   )

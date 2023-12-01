@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Logo from '../../public/Logo.png'
 import Image from 'next/image'
 import SearchBar from './Search';
+import SigninButton from './SigninButton';
 
 interface NavbarProps {
   sidebar: boolean;
@@ -17,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
         {props.sidebar && <SearchBar />}
         <ul className="flex space-x-4">
           <li>
-            <Link href="/api/auth/signout" className="text-black">Signout</Link>
+            <SigninButton />
           </li>
         </ul>
       </div>
