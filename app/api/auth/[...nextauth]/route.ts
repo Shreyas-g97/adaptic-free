@@ -3,10 +3,10 @@ import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 
-// const prisma = new PrismaClient()
+const prisma = new PrismaClient()
 
 const handler = NextAuth({
-  // adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma),
   // Configure one or more authentication providers
   providers: [
     GoogleProvider({
