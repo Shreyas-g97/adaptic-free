@@ -7,7 +7,6 @@ import Navbar from './components/Navbar';
 import { useRouter } from 'next/navigation';
 import useStore from './results'
 import Loading from './components/Loading';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 
 export default function Home() {
