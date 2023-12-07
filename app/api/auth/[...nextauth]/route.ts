@@ -12,6 +12,10 @@ const handler = NextAuth({
   ],
   adapter: PrismaAdapter(prisma),
   secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    // Set to jwt in order to CredentialsProvider works properly
+    strategy: 'jwt'
+  },
 });
 
 export {handler as GET, handler as POST}
